@@ -7,6 +7,7 @@ import {
   Users, CreditCard, UserCheck, GraduationCap, ShieldCheck, 
   TrendingUp, ExternalLink
 } from 'lucide-react';
+import logo from './assets/logo.png';
 
 // --- DATA SOURCED STRICTLY FROM CSVs ---
 
@@ -278,9 +279,9 @@ export default function App() {
       {/* Top Navigation Bar */}
       <nav className="bg-slate-900 text-white px-6 py-4 shadow-md flex justify-between items-center sticky top-0 z-50">
         <div className="flex items-center space-x-3">
-          {/* Logo Implementation */}
+          {/* 2. Use the imported variable in the src attribute */}
           <img 
-            src={`${import.meta.env.BASE_URL}logo.png`} 
+            src={logo} 
             alt="Company Logo" 
             className="w-10 h-10 object-contain rounded" 
           />
