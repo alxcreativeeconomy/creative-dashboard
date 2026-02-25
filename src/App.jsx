@@ -12,9 +12,9 @@ import logo from './assets/logo.png';
 // --- DATA SOURCED STRICTLY FROM CSVs ---
 
 const kpiData2025 = [
-  { title: "Total Enrolled (Top Funnel)", value: "33,472", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100" },
-  { title: "Paid Learners", value: "8,366", target: 18000, progress: 46.48, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100" },
-  { title: "Activated Paid", value: "3,902", target: 9000, progress: 43.36, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100" },
+  { title: "Total Enrolled (Top Funnel)", value: "35,569", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100" },
+  { title: "Paid Learners", value: "8,910", target: 18000, progress: 49.50, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100" },
+  { title: "Activated Paid", value: "3,907", target: 9000, progress: 43.41, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100" },
   { title: "Graduation Rate", value: "1062", target: 5000, progress: 21.24, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100" },
   { title: "Retention Rate", value: "80.00%", target: "80.00%", progress: 100, icon: ShieldCheck, color: "text-rose-600", bg: "bg-rose-100" }
 ];
