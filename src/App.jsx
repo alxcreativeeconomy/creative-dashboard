@@ -55,10 +55,10 @@ const cohortGroups = [
     ],
     ctlsName: 'Creative Tech Lite Specialization Cohort 2',
     ctlsData: [
-      { program: "AI for Creatives", enrolled: 597, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
-      { program: "Content Creation", enrolled: 213, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
-      { program: "Graphic Design", enrolled: 65, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
-      { program: "Music & Audio", enrolled: 217, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "AI for Creatives", enrolled: 291, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "Content Creation", enrolled: 551, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "Graphic Design", enrolled: 619, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "Music & Audio", enrolled: 167, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
     ]
   },
   {
@@ -70,8 +70,8 @@ const cohortGroups = [
     ], 
     ctlsName: 'Creative Tech Lite Specialization Cohort 3',
     ctlsData: [
-      { program: "Content creation", enrolled: 801, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '26" },
-      { program: "Graphic Design", enrolled: 852, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '26" },
+      { program: "Content Creation", enrolled: 801, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
+      { program: "Graphic Design", enrolled: 852, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
     ] 
   }
 ];
