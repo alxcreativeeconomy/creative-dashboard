@@ -126,7 +126,7 @@ const CohortSection = ({ title, data, bgColor }) => {
   return (
     <div className="flex flex-col border-b border-slate-100 last:border-0">
       <div className={`px-8 py-6 border-y border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 ${bgColor}`}>
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-5">
           <div className="flex flex-col justify-center">
             <div className="w-1.5 h-12 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 rounded-full"></div>
           </div>
