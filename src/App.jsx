@@ -29,14 +29,14 @@ const funnelData = [
 const cohortGroups = [
   {
     id: 'group1',
-    pfName: 'Professional Foundations Cohort 9 - This Cohort Started 5 May 2025 and Graduated 28 July 2025',
+    pfName: 'Professional Foundations Cohort 9',
     pfData: [
       { program: "AI for Creatives", enrolled: 393, graduated: 64, rate: "16.28%", dates: "May 5 - Jul 28 '2025" },
       { program: "Content Creation", enrolled: 1310, graduated: 261, rate: "19.92%", dates: "May 5 - Jul 28 '2025" },
       { program: "Graphic Design", enrolled: 1396, graduated: 376, rate: "26.93%", dates: "May 5 - Jul 28 '2025" },
       { program: "Music & Audio", enrolled: 286, graduated: 86, rate: "30.07%", dates: "May 5 - Jul 28 '2025" },
     ],
-    ctlsName: 'Creative Tech Lite Specialization Cohort 1 - This Cohort Started 18 August 2025 and Graduated 15 December 2025',
+    ctlsName: 'Creative Tech Lite Specialization Cohort 1',
     ctlsData: [
       { program: "AI for Creatives", enrolled: 383, graduated: 173, rate: "45.17%", dates: "Aug 18 - Dec 15 '2025" },
       { program: "Content Creation", enrolled: 709, graduated: 348, rate: "49.08%", dates: "Aug 18 - Dec 15 '2025" },
@@ -46,14 +46,14 @@ const cohortGroups = [
   },
   {
     id: 'group2',
-    pfName: 'Professional Foundations Cohort 10 - This Cohort Started 30 June 2025 and Graduated 22 September 2025',
+    pfName: 'Professional Foundations Cohort 10',
     pfData: [
       { program: "AI for Creatives", enrolled: 400, graduated: 36, rate: "9.00%", dates: "Jun 30 - Sep 22 '2025" },
       { program: "Content Creation", enrolled: 1346, graduated: 200, rate: "14.86%", dates: "Jun 30 - Sep 22 '2025" },
       { program: "Graphic Design", enrolled: 1556, graduated: 249, rate: "16.00%", dates: "Jun 30 - Sep 22 '2025" },
       { program: "Music & Audio", enrolled: 347, graduated: 61, rate: "17.58%", dates: "Jun 30 - Sep 22 '2025" },
     ],
-    ctlsName: 'Creative Tech Lite Specialization Cohort 2 - This Cohort Started 13 October 2025 and will Graduate 23 February 2026',
+    ctlsName: 'Creative Tech Lite Specialization Cohort 2',
     ctlsData: [
       { program: "AI for Creatives", enrolled: 291, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
       { program: "Content Creation", enrolled: 551, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
@@ -63,12 +63,12 @@ const cohortGroups = [
   },
   {
     id: 'group3',
-    pfName: 'Professional Foundations Cohort 11 - This Cohort Started 22 September 2025 and Graduated December 2025  ',
+    pfName: 'Professional Foundations Cohort 11',
     pfData: [
       { program: "Content Creation", enrolled: 1214, graduated: 189, rate: "15.57%", dates: "Sep 22 - Dec 15 '2025" },
       { program: "Graphic Design", enrolled: 1288, graduated: 240, rate: "18.63%", dates: "Sep 22 - Dec 15 '2025" },
     ], 
-    ctlsName: 'Creative Tech Lite Specialization Cohort 3 - This Cohort Started 12 January 2026 and will Graduate 18 May 2026',
+    ctlsName: 'Creative Tech Lite Specialization Cohort 3',
     ctlsData: [
       { program: "Content Creation", enrolled: 801, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
       { program: "Graphic Design", enrolled: 852, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
@@ -126,7 +126,7 @@ const CohortSection = ({ title, data, bgColor }) => {
   return (
     <div className="flex flex-col border-b border-slate-100 last:border-0">
       <div className={`px-8 py-6 border-y border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 ${bgColor}`}>
-        <div className="flex items-start gap-5">
+        <div className="flex items-start gap-4">
           <div className="flex flex-col justify-center">
             <div className="w-1.5 h-12 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 rounded-full"></div>
           </div>
