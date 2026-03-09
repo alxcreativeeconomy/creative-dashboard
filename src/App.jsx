@@ -74,10 +74,10 @@ const cohortGroups = [
     ],
     ctlsName: 'Creative Tech Lite Specialization Cohort 2',
     ctlsData: [
-      { program: "AI for Creatives", enrolled: 291, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
-      { program: "Content Creation", enrolled: 551, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
-      { program: "Graphic Design", enrolled: 619, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
-      { program: "Music & Audio", enrolled: 167, graduated: "Pending", rate: "N/A", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "AI for Creatives", enrolled: 291, graduated: 75, rate: "25.77%", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "Content Creation", enrolled: 551, graduated: 192, rate: "34.85%", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "Graphic Design", enrolled: 619, graduated: 204, rate: "32.96%", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "Music & Audio", enrolled: 167, graduated: 68, rate: "40.72%", dates: "Oct 13 - Feb 23 '2026" },
     ]
   },
   {
