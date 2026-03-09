@@ -12,11 +12,30 @@ import logo from './assets/logo.png';
 // --- DATA SOURCED STRICTLY FROM CSVs ---
 
 const kpiData2025 = [
-  { title: "Total Enrolled (Top Funnel)", value: "35,569", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100" },
-  { title: "Paid Learners", value: "8,910", target: 18000, progress: 49.50, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100" },
-  { title: "Activated Paid", value: "3,907", target: 9000, progress: 43.41, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100" },
-  { title: "Graduation Rate", value: "1062", target: 5000, progress: 21.24, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100" },
-  { title: "Retention Rate", value: "80.00%", target: "80.00%", progress: 100, icon: ShieldCheck, color: "text-rose-600", bg: "bg-rose-100" }
+  { title: "Total Enrolled (Top Funnel)", value: "35,569", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Paid Learners", value: "8,910", target: 18000, progress: 49.50, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Activated Paid", value: "3,907", target: 9000, progress: 43.41, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Graduation Rate", value: "1062", target: 5000, progress: 21.24, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Retention Rate", value: "80.00%", target: "80.00%", progress: 100, icon: ShieldCheck, color: "text-rose-600", bg: "bg-rose-100", borderColor: "rgb(244, 63, 94)", cardBg: "linear-gradient(135deg, rgba(254, 226, 226, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" }
+];
+
+const kpiData2026 = [
+  { title: "Total Enrolled (Top Funnel)", value: "35,569", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Paid Learners", value: "8,910", target: 18000, progress: 49.50, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Activated Paid", value: "3,907", target: 9000, progress: 43.41, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Graduation Rate", value: "1062", target: 5000, progress: 21.24, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Retention Rate", value: "80.00%", target: "80.00%", progress: 100, icon: ShieldCheck, color: "text-rose-600", bg: "bg-rose-100", borderColor: "rgb(244, 63, 94)", cardBg: "linear-gradient(135deg, rgba(254, 226, 226, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" }
+];
+
+const weeklyMetricsData = [
+  { metric: "Revenue", target: "$800k", current: "$673k", previous: "$673k", wow: "84%", progress: 84, comments: "Afriemibank: + $664k\nMutiny: + $9K" },
+  { metric: "Team trained", target: "100%", current: "0%", previous: "0%", wow: "0%", progress: 0, comments: "Waiting for central training to kick off" },
+  { metric: "Clients secured + Fundraising proposal submitted", target: "10", current: "2", previous: "2", wow: "0%", progress: 20, comments: "Client reference above" },
+  { metric: "Ecosystem partners secured", target: "5", current: "0", previous: "0", wow: "0%", progress: 0, comments: "Trace TV negotiations underway" },
+  { metric: "Champions trained", target: "50", current: "0", previous: "0", wow: "0%", progress: 0, comments: "8 champions identified" },
+  { metric: "% of creative learners on platform", target: "60%", current: "0%", previous: "0%", wow: "0%", progress: 0, comments: "Platform still under development" },
+  { metric: "CSAT Programming events", target: "80%", current: "0%", previous: "0%", wow: "0%", progress: 0, comments: "Scheduling still underway" },
+  { metric: "Impression from UGC led campaigns", target: "250", current: "0", previous: "0", wow: "0%", progress: 0, comments: "No comment" }
 ];
 
 const funnelData = [
@@ -78,17 +97,20 @@ const cohortGroups = [
 
 // --- COMPONENTS & STYLES ---
 
-const Card = ({ children, className = "" }) => (
-  <div className={`bg-white rounded-2xl shadow-lg border border-slate-100/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-slate-200 ${className}`}>
+const Card = ({ children, className = "", style = {} }) => (
+  <div 
+    className={`bg-white rounded-2xl shadow-lg border border-slate-100/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-slate-200 ${className}`}
+    style={style}
+  >
     {children}
   </div>
 );
 
 const PROGRAM_COLORS = {
-  "AI for Creatives": "#3b82f6", // blue-500
-  "Content Creation": "#8b5cf6", // violet-500
-  "Graphic Design": "#f43f5e",   // rose-500
-  "Music & Audio": "#10b981",    // emerald-500
+  "AI for Creatives": "#3b82f6", 
+  "Content Creation": "#8b5cf6", 
+  "Graphic Design": "#f43f5e",   
+  "Music & Audio": "#10b981",    
 };
 
 const TooltipStyle = {
@@ -100,7 +122,6 @@ const TooltipStyle = {
 };
 
 const CohortSection = ({ title, data, bgColor }) => {
-  // Extract strictly numeric data for the pie charts
   const pieData = data
     .filter(d => typeof d.enrolled === 'number')
     .map(d => ({ name: d.program, value: d.enrolled }));
@@ -109,17 +130,15 @@ const CohortSection = ({ title, data, bgColor }) => {
     .filter(d => typeof d.graduated === 'number')
     .map(d => ({ name: d.program, value: d.graduated }));
 
-  // Extract percentage rates for the third chart
   const rateData = data
     .filter(d => d.rate !== 'N/A')
     .map(d => ({ name: d.program, value: parseFloat(d.rate.replace('%', '')) }));
 
-  // Calculate totals for the center of the pie charts
   const totalEnrolled = pieData.reduce((acc, curr) => acc + curr.value, 0);
   const totalGraduated = gradData.reduce((acc, curr) => acc + curr.value, 0);
   
-  // Calculate average rate
-  const averageRate = totalEnrolled > 0 
+  // FIX: Added `gradData.length > 0` condition so entirely pending cohorts return 'N/A' rather than '0.00%'
+  const averageRate = (totalEnrolled > 0 && gradData.length > 0)
     ? ((totalGraduated / totalEnrolled) * 100).toFixed(2) + '%' 
     : 'N/A';
 
@@ -173,7 +192,6 @@ const CohortSection = ({ title, data, bgColor }) => {
                 <tr key={idx} className="hover:bg-slate-50 transition-colors duration-150">
                   <td className="px-6 py-4">
                     <div className="flex items-center space-x-3">
-                      {/* Color Dot Legend */}
                       <div className="w-3 h-3 rounded-full shrink-0 shadow-sm" style={{ backgroundColor: PROGRAM_COLORS[row.program] || '#ccc' }}></div>
                       <div>
                         <div className="font-medium text-slate-900 text-sm">{row.program}</div>
@@ -221,7 +239,6 @@ const CohortSection = ({ title, data, bgColor }) => {
                       <Tooltip contentStyle={TooltipStyle} itemStyle={{color: '#334155'}} />
                     </PieChart>
                   </ResponsiveContainer>
-                  {/* Total Centered Label */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <span className="text-sm font-bold text-slate-700">{totalEnrolled.toLocaleString()}</span>
                   </div>
@@ -248,7 +265,6 @@ const CohortSection = ({ title, data, bgColor }) => {
                       <Tooltip contentStyle={TooltipStyle} itemStyle={{color: '#334155'}} />
                     </PieChart>
                   </ResponsiveContainer>
-                  {/* Total Centered Label */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <span className="text-sm font-bold text-slate-700">{totalGraduated.toLocaleString()}</span>
                   </div>
@@ -275,7 +291,6 @@ const CohortSection = ({ title, data, bgColor }) => {
                       <Tooltip formatter={(value) => `${value}%`} contentStyle={TooltipStyle} itemStyle={{color: '#334155'}} />
                     </PieChart>
                   </ResponsiveContainer>
-                  {/* Total Centered Label */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <span className="text-sm font-bold text-slate-700">{averageRate}</span>
                   </div>
@@ -303,8 +318,6 @@ export default function App() {
       {/* Top Navigation Bar */}
       <nav className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white sticky top-0 z-50 border-b border-slate-800/50 backdrop-blur-lg bg-opacity-95">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap justify-between items-center gap-6">
-          
-          {/* Brand Section */}
           <div className="flex items-center gap-4 min-w-fit">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-xl blur-md opacity-50 group-hover:opacity-100 transition"></div>
@@ -320,10 +333,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Spacer */}
           <div className="flex-1 hidden lg:block"></div>
 
-          {/* Center Navigation - Year Selector */}
           <div className="flex items-center gap-2 bg-slate-800/30 backdrop-blur-sm p-1.5 rounded-xl border border-slate-700/50 hover:border-slate-600 transition">
             <button
               onClick={() => setCurrentPage('2025')}
@@ -348,7 +359,6 @@ export default function App() {
             </button>
           </div>
 
-          {/* Right Action Button */}
           <a 
             href="https://docs.google.com/spreadsheets/d/1insq7NCsTtHLU2vSx1ejADznXk_jbjygMrtc1KuED3E/edit?gid=79275002#gid=79275002" 
             target="_blank" 
@@ -363,57 +373,51 @@ export default function App() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
 
-        
-        {/* 2025 Page Content */}
         {currentPage === '2025' && (
           <>
-            {/* Header */}
             <div className="mb-10">
               <h2 className="text-4xl font-bold text-slate-900">2025 Key Metrics Overview</h2>
-              <p className="text-slate-500 mt-2 text-base">Application, Enrollment, and Graduation tracking</p>
+              <p className="text-slate-500 mt-2 text-base">Operational KPIs and Weekly Performance Tracking</p>
             </div>
 
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
-              
-              {/* KPI Row (Top Funnel Data) */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-                {kpiData2025.map((kpi, idx) => (
-                  <Card key={idx} className="p-6 flex flex-col justify-between hover:shadow-xl transition-all border-l-4 border-l-transparent bg-gradient-to-br from-slate-50/50 to-white group">
-                    <style>{`
-                      .group:nth-child(1) { --tw-border-color: rgb(59, 130, 246); background: linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%); }
-                      .group:nth-child(2) { --tw-border-color: rgb(16, 185, 129); background: linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%); }
-                      .group:nth-child(3) { --tw-border-color: rgb(139, 92, 246); background: linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%); }
-                      .group:nth-child(4) { --tw-border-color: rgb(245, 158, 11); background: linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%); }
-                      .group:nth-child(5) { --tw-border-color: rgb(244, 63, 94); background: linear-gradient(135deg, rgba(254, 226, 226, 0.3) 0%, rgba(255, 255, 255, 1) 100%); }
-                    `}</style>
-                    <div className="flex justify-between items-start mb-4">
-                      <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{kpi.title}</span>
-                      <div className={`p-3 rounded-xl ${kpi.bg} shadow-md`}>
-                        <kpi.icon className={`w-5 h-5 ${kpi.color}`} />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-3xl font-bold text-slate-900">{kpi.value}</h4>
-                      {kpi.target && (
-                        <div className="mt-4">
-                          <div className="flex justify-between text-xs mb-2">
-                            <span className="text-slate-500">Target: {kpi.target}</span>
-                            <span className="font-bold text-slate-700 px-2 py-1 bg-slate-100/80 rounded">{kpi.progress}%</span>
-                          </div>
-                          <div className="w-full bg-slate-200/50 rounded-full h-2.5 overflow-hidden shadow-inner">
-                            <div 
-                              className={`h-2.5 rounded-full transition-all duration-500 ${kpi.progress >= 100 ? 'bg-gradient-to-r from-emerald-400 to-emerald-500' : 'bg-gradient-to-r from-blue-400 to-blue-500'}`} 
-                              style={{ width: `${Math.min(kpi.progress, 100)}%` }}
-                            ></div>
-                          </div>
+                {kpiData2025.map((kpi, idx) => {
+                  const Icon = kpi.icon; // FIX: Ensure component reference is capitalized
+                  return (
+                    <Card 
+                      key={idx} 
+                      className="p-6 flex flex-col justify-between hover:shadow-xl transition-all border-l-4 group"
+                      style={{ borderLeftColor: kpi.borderColor, background: kpi.cardBg }} // FIX: Applied natively instead of <style> injection
+                    >
+                      <div className="flex justify-between items-start mb-4">
+                        <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{kpi.title}</span>
+                        <div className={`p-3 rounded-xl ${kpi.bg} shadow-md`}>
+                          <Icon className={`w-5 h-5 ${kpi.color}`} />
                         </div>
-                      )}
-                    </div>
-                  </Card>
-                ))}
+                      </div>
+                      <div>
+                        <h4 className="text-3xl font-bold text-slate-900">{kpi.value}</h4>
+                        {kpi.target && (
+                          <div className="mt-4">
+                            <div className="flex justify-between text-xs mb-2">
+                              <span className="text-slate-500">Target: {kpi.target}</span>
+                              <span className="font-bold text-slate-700 px-2 py-1 bg-slate-100/80 rounded">{kpi.progress}%</span>
+                            </div>
+                            <div className="w-full bg-slate-200/50 rounded-full h-2.5 overflow-hidden shadow-inner">
+                              <div 
+                                className={`h-2.5 rounded-full transition-all duration-500 ${kpi.progress >= 100 ? 'bg-gradient-to-r from-emerald-400 to-emerald-500' : 'bg-gradient-to-r from-blue-400 to-blue-500'}`} 
+                                style={{ width: `${Math.min(kpi.progress, 100)}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </Card>
+                  );
+                })}
               </div>
 
-              {/* Application Funnel Chart */}
               <Card className="p-8">
                 <h3 className="text-lg font-bold mb-2 flex items-center text-slate-900">
                   <TrendingUp className="w-5 h-5 mr-3 text-blue-600" />
@@ -441,15 +445,14 @@ export default function App() {
                 </div>
               </Card>
 
-              {/* All Cohorts Section */}
               <Card className="p-0 overflow-hidden flex flex-col shadow-xl">
-                <div className="p-8 border-b border-slate-200 bg-gradient-to-r from-blue-50 via-slate-50 to-white">
-                  <div className="flex items-center mb-2">
-                    <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full mr-4"></div>
-                    <h3 className="text-2xl font-bold text-slate-900">Cohort Performance Tracking</h3>
-                  </div>
-                  <p className="text-sm text-slate-500 mt-2 ml-5">All learner progression from Professional Foundations directly into Creative Tech Lite Specializations.</p>
-                </div>
+                <div className="p-8 border-b border-slate-200 bg-gradient-to-r from-blue-50 via-slate-50 to-white flex flex-col items-center text-center">
+  <div className="flex items-center justify-center mb-2">
+    <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full mr-3"></div>
+    <h3 className="text-2xl font-bold text-slate-900">Cohort Performance Tracking</h3>
+  </div>
+  <p className="text-sm text-slate-500 mt-2 max-w-2xl">All learner progression from Professional Foundations directly into Creative Tech Lite Specializations.</p>
+</div>
                 
                 <div className="bg-white">
                   {cohortGroups.map((group) => (
@@ -464,26 +467,124 @@ export default function App() {
           </>
         )}
 
-        {/* 2026 Page Content */}
         {currentPage === '2026' && (
           <>
-            {/* Header */}
             <div className="mb-10">
-              <h2 className="text-4xl font-bold text-slate-900">2026 Creative Tech Lite Specialization Cohorts</h2>
-              <p className="text-slate-500 mt-2 text-base">CTLS Cohorts 2 & 3 due to graduate</p>
+              <h2 className="text-4xl font-bold text-slate-900">2026 Key Metrics Overview</h2>
+              <p className="text-slate-500 mt-2 text-base">Operational KPIs and Weekly Performance Tracking</p>
             </div>
 
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
-              
-              {/* Graduating CTLS Cohorts Section */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                {kpiData2026.map((kpi, idx) => {
+                  const Icon = kpi.icon; // FIX: Ensure component reference is capitalized
+                  return (
+                    <Card 
+                      key={idx} 
+                      className="p-6 flex flex-col justify-between hover:shadow-xl transition-all border-l-4 group"
+                      style={{ borderLeftColor: kpi.borderColor, background: kpi.cardBg }} // FIX: Applied natively instead of <style> injection
+                    >
+                      <div className="flex justify-between items-start mb-4">
+                        <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{kpi.title}</span>
+                        <div className={`p-3 rounded-xl ${kpi.bg} shadow-md`}>
+                          <Icon className={`w-5 h-5 ${kpi.color}`} />
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="text-3xl font-bold text-slate-900">{kpi.value}</h4>
+                        {kpi.target && (
+                          <div className="mt-4">
+                            <div className="flex justify-between text-xs mb-2">
+                              <span className="text-slate-500">Target: {kpi.target}</span>
+                              <span className="font-bold text-slate-700 px-2 py-1 bg-slate-100/80 rounded">{kpi.progress}%</span>
+                            </div>
+                            <div className="w-full bg-slate-200/50 rounded-full h-2.5 overflow-hidden shadow-inner">
+                              <div 
+                                className={`h-2.5 rounded-full transition-all duration-500 ${kpi.progress >= 100 ? 'bg-gradient-to-r from-emerald-400 to-emerald-500' : 'bg-gradient-to-r from-blue-400 to-blue-500'}`} 
+                                style={{ width: `${Math.min(kpi.progress, 100)}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </Card>
+                  );
+                })}
+              </div>
+
               <Card className="p-0 overflow-hidden flex flex-col shadow-xl">
-                <div className="p-8 border-b border-slate-200 bg-gradient-to-r from-emerald-50 via-slate-50 to-white">
-                  <div className="flex items-center mb-2">
-                    <div className="w-1 h-8 bg-gradient-to-b from-emerald-500 to-emerald-600 rounded-full mr-4"></div>
-                    <h3 className="text-2xl font-bold text-slate-900">Cohort Performance Tracking</h3>
-                  </div>
-                  <p className="text-sm text-slate-500 mt-2 ml-5">Creative Tech Lite Specialization Cohorts 2 & 3 performance metrics.</p>
+                <div className="p-8 border-b border-slate-200 bg-gradient-to-r from-violet-50 via-slate-50 to-white flex flex-col items-center text-center">
+  <div className="flex items-center justify-center mb-2">
+    <div className="w-1 h-8 bg-gradient-to-b from-violet-500 to-violet-600 rounded-full mr-3"></div>
+    <h3 className="text-2xl font-bold text-slate-900">Weekly Performance Tracking</h3>
+  </div>
+  <p className="text-sm text-slate-500 mt-2 max-w-2xl">Weekly breakdown of progress against key operational targets.</p>
+</div>
+                
+                <div className="bg-white overflow-x-auto w-full">
+                  <table className="w-full text-left border-collapse min-w-[950px]">
+                    <thead>
+                      <tr className="text-slate-500 text-[11px] uppercase tracking-wider bg-slate-50 border-b border-slate-200">
+                        <th className="px-6 py-4 font-semibold">Metric</th>
+                        <th className="px-6 py-4 font-semibold">Target</th>
+                        <th className="px-6 py-4 font-semibold">Current (This Week)</th>
+                        <th className="px-6 py-4 font-semibold">Previous (Last Week)</th>
+                        <th className="px-6 py-4 font-semibold">% WoW Change</th>
+                        <th className="px-6 py-4 font-semibold w-48">% Progress</th>
+                        <th className="px-6 py-4 font-semibold w-64">Comments</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100">
+                      {weeklyMetricsData.map((row, idx) => (
+                        <tr key={idx} className="hover:bg-slate-50 transition-colors duration-150">
+                          <td className="px-6 py-4 font-medium text-slate-900 text-sm">
+                            {row.metric}
+                          </td>
+                          <td className="px-6 py-4 text-slate-600 text-sm font-medium">
+                            {row.target}
+                          </td>
+                          <td className="px-6 py-4 text-slate-800 font-semibold text-sm">
+                            {row.current}
+                          </td>
+                          <td className="px-6 py-4 text-slate-500 text-sm">
+                            {row.previous}
+                          </td>
+                          <td className="px-6 py-4">
+                            <span className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold ${row.wow === '0%' || row.wow === '0' ? 'bg-slate-100 text-slate-500' : 'bg-emerald-100 text-emerald-700'}`}>
+                              {row.wow}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4">
+                            <div className="flex items-center gap-3">
+                              <span className="text-sm font-semibold text-slate-700 w-10">{row.progress}%</span>
+                              <div className="flex-1 bg-slate-100 rounded-full h-2 overflow-hidden">
+                                <div 
+                                  className={`h-full rounded-full ${row.progress > 0 ? 'bg-violet-500' : 'bg-transparent'}`} 
+                                  style={{ width: `${Math.min(row.progress, 100)}%` }}
+                                ></div>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 text-slate-500 text-xs leading-relaxed">
+                            {row.comments.split('\n').map((line, i) => (
+                              <div key={i} className="mb-0.5 last:mb-0">{line}</div>
+                            ))}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
+              </Card>
+              
+              <Card className="p-0 overflow-hidden flex flex-col shadow-xl">
+                <div className="p-8 border-b border-slate-200 bg-gradient-to-r from-emerald-50 via-slate-50 to-white flex flex-col items-center text-center">
+  <div className="flex items-center justify-center mb-2">
+    <div className="w-1 h-8 bg-gradient-to-b from-emerald-500 to-emerald-600 rounded-full mr-3"></div>
+    <h3 className="text-2xl font-bold text-slate-900">Cohort Performance Tracking</h3>
+  </div>
+  <p className="text-sm text-slate-500 mt-2 max-w-2xl">Creative Tech Lite Specialization Cohorts 2 & 3 performance metrics.</p>
+</div>
                 
                 <div className="bg-white">
                   {cohortGroups.slice(1).map((group) => (
