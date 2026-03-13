@@ -14,17 +14,17 @@ import logo from './assets/logo.png';
 const kpiData2025 = [
   { title: "Total Enrolled (Top Funnel)", value: "35,569", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "Paid Learners", value: "8,910", target: 18000, progress: 49.50, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Activated Paid", value: "3,907", target: 9000, progress: 43.41, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Activated Paid", value: "4,701", target: 9000, progress: 43.41, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "Graduation Rate", value: "1601", target: 5000, progress: 21.24, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "Retention Rate", value: "80.00%", target: "80.00%", progress: 100, icon: ShieldCheck, color: "text-rose-600", bg: "bg-rose-100", borderColor: "rgb(244, 63, 94)", cardBg: "linear-gradient(135deg, rgba(254, 226, 226, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" }
 ];
 
 const kpiData2026 = [
-  { title: "Total Enrolled (Top Funnel)", value: "35,569", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Paid Learners", value: "8,910", target: 18000, progress: 49.50, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Activated Paid", value: "3,907", target: 9000, progress: 43.41, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Graduation Rate", value: "1601", target: 5000, progress: 21.24, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Retention Rate", value: "80.00%", target: "80.00%", progress: 100, icon: ShieldCheck, color: "text-rose-600", bg: "bg-rose-100", borderColor: "rgb(244, 63, 94)", cardBg: "linear-gradient(135deg, rgba(254, 226, 226, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" }
+  { title: "Total Enrolled (2026 C3)", value: "7,752", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Paid Learners", value: "4,839",  icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Activated Paid", value: "2,433", icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Graduation Rate", value: "539", icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Retention Rate", value: "-", target: "-", progress: "-", icon: ShieldCheck, color: "text-rose-600", bg: "bg-rose-100", borderColor: "rgb(244, 63, 94)", cardBg: "linear-gradient(135deg, rgba(254, 226, 226, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" }
 ];
 
 const weeklyMetricsData = [
@@ -50,47 +50,47 @@ const cohortGroups = [
     id: 'group1',
     pfName: 'Professional Foundations Cohort 9',
     pfData: [
-      { program: "AI for Creatives", enrolled: 393, graduated: 64, rate: "16.28%", dates: "May 5 - Jul 28 '2025" },
-      { program: "Content Creation", enrolled: 1310, graduated: 261, rate: "19.92%", dates: "May 5 - Jul 28 '2025" },
-      { program: "Graphic Design", enrolled: 1396, graduated: 376, rate: "26.93%", dates: "May 5 - Jul 28 '2025" },
-      { program: "Music & Audio", enrolled: 286, graduated: 86, rate: "30.07%", dates: "May 5 - Jul 28 '2025" },
+      { program: "AI for Creatives", activated: 393, graduated: 64, rate: "16.28%", dates: "May 5 - Jul 28 '2025" },
+      { program: "Content Creation", activated: 1310, graduated: 261, rate: "19.92%", dates: "May 5 - Jul 28 '2025" },
+      { program: "Graphic Design", activated: 1396, graduated: 376, rate: "26.93%", dates: "May 5 - Jul 28 '2025" },
+      { program: "Music & Audio", activated: 286, graduated: 86, rate: "30.07%", dates: "May 5 - Jul 28 '2025" },
     ],
     ctlsName: 'Creative Tech Lite Specialization Cohort 1',
     ctlsData: [
-      { program: "AI for Creatives", enrolled: 383, graduated: 173, rate: "45.17%", dates: "Aug 18 - Dec 15 '2025" },
-      { program: "Content Creation", enrolled: 709, graduated: 348, rate: "49.08%", dates: "Aug 18 - Dec 15 '2025" },
-      { program: "Graphic Design", enrolled: 929, graduated: 420, rate: "45.21%", dates: "Aug 18 - Dec 15 '2025" },
-      { program: "Music & Audio", enrolled: 247, graduated: 121, rate: "48.99%", dates: "Aug 18 - Dec 15 '2025" },
+      { program: "AI for Creatives", activated: 383, graduated: 173, rate: "45.17%", dates: "Aug 18 - Dec 15 '2025" },
+      { program: "Content Creation", activated: 709, graduated: 348, rate: "49.08%", dates: "Aug 18 - Dec 15 '2025" },
+      { program: "Graphic Design", activated: 929, graduated: 420, rate: "45.21%", dates: "Aug 18 - Dec 15 '2025" },
+      { program: "Music & Audio", activated: 247, graduated: 121, rate: "48.99%", dates: "Aug 18 - Dec 15 '2025" },
     ]
   },
   {
     id: 'group2',
     pfName: 'Professional Foundations Cohort 10',
     pfData: [
-      { program: "AI for Creatives", enrolled: 400, graduated: 36, rate: "9.00%", dates: "Jun 30 - Sep 22 '2025" },
-      { program: "Content Creation", enrolled: 1346, graduated: 200, rate: "14.86%", dates: "Jun 30 - Sep 22 '2025" },
-      { program: "Graphic Design", enrolled: 1556, graduated: 249, rate: "16.00%", dates: "Jun 30 - Sep 22 '2025" },
-      { program: "Music & Audio", enrolled: 347, graduated: 61, rate: "17.58%", dates: "Jun 30 - Sep 22 '2025" },
+      { program: "AI for Creatives", activated: 400, graduated: 36, rate: "9.00%", dates: "Jun 30 - Sep 22 '2025" },
+      { program: "Content Creation", activated: 1346, graduated: 200, rate: "14.86%", dates: "Jun 30 - Sep 22 '2025" },
+      { program: "Graphic Design", activated: 1556, graduated: 249, rate: "16.00%", dates: "Jun 30 - Sep 22 '2025" },
+      { program: "Music & Audio", activated: 347, graduated: 61, rate: "17.58%", dates: "Jun 30 - Sep 22 '2025" },
     ],
     ctlsName: 'Creative Tech Lite Specialization Cohort 2',
     ctlsData: [
-      { program: "AI for Creatives", enrolled: 291, graduated: 75, rate: "25.77%", dates: "Oct 13 - Feb 23 '2026" },
-      { program: "Content Creation", enrolled: 551, graduated: 192, rate: "34.85%", dates: "Oct 13 - Feb 23 '2026" },
-      { program: "Graphic Design", enrolled: 619, graduated: 204, rate: "32.96%", dates: "Oct 13 - Feb 23 '2026" },
-      { program: "Music & Audio", enrolled: 167, graduated: 68, rate: "40.72%", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "AI for Creatives", activated: 291, graduated: 75, rate: "25.77%", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "Content Creation", activated: 551, graduated: 192, rate: "34.85%", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "Graphic Design", activated: 619, graduated: 204, rate: "32.96%", dates: "Oct 13 - Feb 23 '2026" },
+      { program: "Music & Audio", activated: 167, graduated: 68, rate: "40.72%", dates: "Oct 13 - Feb 23 '2026" },
     ]
   },
   {
     id: 'group3',
     pfName: 'Professional Foundations Cohort 11',
     pfData: [
-      { program: "Content Creation", enrolled: 1214, graduated: 189, rate: "15.57%", dates: "Sep 22 - Dec 15 '2025" },
-      { program: "Graphic Design", enrolled: 1288, graduated: 240, rate: "18.63%", dates: "Sep 22 - Dec 15 '2025" },
+      { program: "Content Creation", activated: 1214, graduated: 189, rate: "15.57%", dates: "Sep 22 - Dec 15 '2025" },
+      { program: "Graphic Design", activated: 1288, graduated: 240, rate: "18.63%", dates: "Sep 22 - Dec 15 '2025" },
     ], 
     ctlsName: 'Creative Tech Lite Specialization Cohort 3',
     ctlsData: [
-      { program: "Content Creation", enrolled: 801, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
-      { program: "Graphic Design", enrolled: 852, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
+      { program: "Content Creation", activated: 432, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
+      { program: "Graphic Design", activated: 373, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
     ] 
   }
 ];
@@ -122,9 +122,10 @@ const TooltipStyle = {
 };
 
 const CohortSection = ({ title, data, bgColor }) => {
+  // FIX: Properly look for 'activated' since 'enrolled' doesn't exist in the cohort dataset
   const pieData = data
-    .filter(d => typeof d.enrolled === 'number')
-    .map(d => ({ name: d.program, value: d.enrolled }));
+    .filter(d => typeof d.activated === 'number')
+    .map(d => ({ name: d.program, value: d.activated }));
   
   const gradData = data
     .filter(d => typeof d.graduated === 'number')
@@ -134,12 +135,11 @@ const CohortSection = ({ title, data, bgColor }) => {
     .filter(d => d.rate !== 'N/A')
     .map(d => ({ name: d.program, value: parseFloat(d.rate.replace('%', '')) }));
 
-  const totalEnrolled = pieData.reduce((acc, curr) => acc + curr.value, 0);
+  const totalActivated = pieData.reduce((acc, curr) => acc + curr.value, 0);
   const totalGraduated = gradData.reduce((acc, curr) => acc + curr.value, 0);
   
-  // FIX: Added `gradData.length > 0` condition so entirely pending cohorts return 'N/A' rather than '0.00%'
-  const averageRate = (totalEnrolled > 0 && gradData.length > 0)
-    ? ((totalGraduated / totalEnrolled) * 100).toFixed(2) + '%' 
+  const averageRate = (totalActivated > 0 && gradData.length > 0)
+    ? ((totalGraduated / totalActivated) * 100).toFixed(2) + '%' 
     : 'N/A';
 
   return (
@@ -163,13 +163,14 @@ const CohortSection = ({ title, data, bgColor }) => {
         </div>
         <div className="flex items-center gap-3 text-right">
           <div className="flex flex-col gap-1">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Enrolled</span>
-            <span className="text-2xl font-bold text-slate-900">{pieData.reduce((a, c) => a + c.value, 0).toLocaleString()}</span>
+            {/* Displaying 'Activated' explicitly */}
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Activated</span>
+            <span className="text-2xl font-bold text-slate-900">{totalActivated.toLocaleString()}</span>
           </div>
           <div className="w-px h-12 bg-slate-200"></div>
           <div className="flex flex-col gap-1">
             <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Graduated</span>
-            <span className="text-2xl font-bold text-emerald-600">{gradData.reduce((a, c) => a + c.value, 0).toLocaleString()}</span>
+            <span className="text-2xl font-bold text-emerald-600">{totalGraduated.toLocaleString()}</span>
           </div>
         </div>
       </div>
@@ -182,7 +183,8 @@ const CohortSection = ({ title, data, bgColor }) => {
             <thead>
               <tr className="text-slate-500 text-[11px] uppercase tracking-wider bg-gradient-to-r from-slate-50 to-slate-100 border-b border-slate-100">
                 <th className="px-6 py-4 font-semibold">Program</th>
-                <th className="px-6 py-4 font-semibold text-right">Enrolled</th>
+                {/* Changed column header to Activated */}
+                <th className="px-6 py-4 font-semibold text-right">Activated</th>
                 <th className="px-6 py-4 font-semibold text-right">Graduated</th>
                 <th className="px-6 py-4 font-semibold text-right">Rate</th>
               </tr>
@@ -200,9 +202,9 @@ const CohortSection = ({ title, data, bgColor }) => {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-right">
-                    {typeof row.enrolled === 'number' 
-                      ? <span className="font-semibold text-slate-800">{row.enrolled.toLocaleString()}</span>
-                      : <span className="text-slate-400 italic text-sm">{row.enrolled}</span>
+                    {typeof row.activated === 'number' 
+                      ? <span className="font-semibold text-slate-800">{row.activated.toLocaleString()}</span>
+                      : <span className="text-slate-400 italic text-sm">{row.activated}</span>
                     }
                   </td>
                   <td className="px-6 py-4 text-right">
@@ -225,9 +227,9 @@ const CohortSection = ({ title, data, bgColor }) => {
         {/* Inline Pie Charts Section */}
         <div className="w-full lg:w-[480px] xl:w-[540px] shrink-0 grid grid-cols-1 sm:grid-cols-3 gap-4 self-center">
           
-          {/* Enrolled Donut Chart */}
+          {/* Activated Donut Chart */}
           <div className="flex-1 flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-4 border border-slate-100 shadow-md hover:shadow-lg transition-shadow">
-            <h5 className="text-[10px] font-bold text-slate-600 uppercase tracking-wider mb-3 text-center">Enrolled Metric</h5>
+            <h5 className="text-[10px] font-bold text-slate-600 uppercase tracking-wider mb-3 text-center">Activated Metric</h5>
             <div className="w-full relative h-[130px]">
               {pieData.length > 0 ? (
                 <>
@@ -240,7 +242,7 @@ const CohortSection = ({ title, data, bgColor }) => {
                     </PieChart>
                   </ResponsiveContainer>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <span className="text-sm font-bold text-slate-700">{totalEnrolled.toLocaleString()}</span>
+                    <span className="text-sm font-bold text-slate-700">{totalActivated.toLocaleString()}</span>
                   </div>
                 </>
               ) : (
@@ -325,6 +327,7 @@ export default function App() {
                 src={logo} 
                 alt="Company Logo" 
                 className="relative w-12 h-12 object-contain rounded-xl shadow-xl brightness-0 invert" 
+                onError={(e) => { e.target.onerror = null; e.target.src = "https://via.placeholder.com/48?text=Logo" }}
               />
             </div>
             <div className="hidden sm:block">
@@ -383,12 +386,12 @@ export default function App() {
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 {kpiData2025.map((kpi, idx) => {
-                  const Icon = kpi.icon; // FIX: Ensure component reference is capitalized
+                  const Icon = kpi.icon;
                   return (
                     <Card 
                       key={idx} 
                       className="p-6 flex flex-col justify-between hover:shadow-xl transition-all border-l-4 group"
-                      style={{ borderLeftColor: kpi.borderColor, background: kpi.cardBg }} // FIX: Applied natively instead of <style> injection
+                      style={{ borderLeftColor: kpi.borderColor, background: kpi.cardBg }} 
                     >
                       <div className="flex justify-between items-start mb-4">
                         <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{kpi.title}</span>
@@ -477,12 +480,12 @@ export default function App() {
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 {kpiData2026.map((kpi, idx) => {
-                  const Icon = kpi.icon; // FIX: Ensure component reference is capitalized
+                  const Icon = kpi.icon;
                   return (
                     <Card 
                       key={idx} 
                       className="p-6 flex flex-col justify-between hover:shadow-xl transition-all border-l-4 group"
-                      style={{ borderLeftColor: kpi.borderColor, background: kpi.cardBg }} // FIX: Applied natively instead of <style> injection
+                      style={{ borderLeftColor: kpi.borderColor, background: kpi.cardBg }} 
                     >
                       <div className="flex justify-between items-start mb-4">
                         <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{kpi.title}</span>
