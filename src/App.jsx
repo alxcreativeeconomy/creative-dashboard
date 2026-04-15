@@ -3,39 +3,36 @@ import {
   ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   PieChart, Pie, Cell
 } from 'recharts';
-import { 
-  Users, CreditCard, UserCheck, GraduationCap, ShieldCheck, 
-  TrendingUp, ExternalLink
+import {
+  Users, CreditCard, UserCheck, GraduationCap, ShieldCheck,
+  TrendingUp, ExternalLink, ChevronDown
 } from 'lucide-react';
 import logo from './assets/logo.png';
 
 // --- DATA SOURCED STRICTLY FROM CSVs ---
 
 const kpiData2025 = [
-  { title: "Total Enrolled (Top Funnel)", value: "35,569", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Paid Learners", value: "8,910", target: 18000, progress: 49.50, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Total Enrolled (Top Funnel)", value: "27,817", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Paid Learners", value: "7,660", target: 18000, progress: 49.50, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "Activated Paid", value: "4,701", target: 9000, progress: 43.41, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Graduation Rate", value: "1601", target: 5000, progress: 21.24, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Retention Rate", value: "80.00%", target: "80.00%", progress: 100, icon: ShieldCheck, color: "text-rose-600", bg: "bg-rose-100", borderColor: "rgb(244, 63, 94)", cardBg: "linear-gradient(135deg, rgba(254, 226, 226, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" }
+  { title: "Graduated Learners", value: "1,601", target: 5000, progress: 21.24, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
 ];
 
 const kpiData2026 = [
   { title: "Total Enrolled (2026 C3)", value: "7,752", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Paid Learners", value: "4,839",  icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Activated Paid", value: "2,433", icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Graduation Rate", value: "539", icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Retention Rate", value: "-", target: "-", progress: "-", icon: ShieldCheck, color: "text-rose-600", bg: "bg-rose-100", borderColor: "rgb(244, 63, 94)", cardBg: "linear-gradient(135deg, rgba(254, 226, 226, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" }
+  { title: "Paid Learners", value: "1,250", target: null, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Activated Paid", value: "2,433", target: null, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Graduated Learners", value: "539", target: null, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
 ];
 
 const weeklyMetricsData = [
   { metric: "Revenue", target: "$800k", current: "$673k", previous: "$673k", wow: "84%", progress: 84, comments: "Afriemibank: + $664k\nMutiny: + $9K" },
   { metric: "Team trained", target: "100%", current: "0%", previous: "0%", wow: "0%", progress: 0, comments: "Waiting for central training to kick off" },
   { metric: "Clients secured + Fundraising proposal submitted", target: "10", current: "2", previous: "2", wow: "0%", progress: 20, comments: "Client reference above" },
-  { metric: "Ecosystem partners secured", target: "5", current: "0", previous: "0", wow: "0%", progress: 0, comments: "Trace TV negotiations underway" },
-  { metric: "Champions trained", target: "50", current: "0", previous: "0", wow: "0%", progress: 0, comments: "8 champions identified" },
-  { metric: "% of creative learners on platform", target: "60%", current: "0%", previous: "0%", wow: "0%", progress: 0, comments: "Platform still under development" },
-  { metric: "CSAT Programming events", target: "80%", current: "0%", previous: "0%", wow: "0%", progress: 0, comments: "Scheduling still underway" },
-  { metric: "Impression from UGC led campaigns", target: "250", current: "0", previous: "0", wow: "0%", progress: 0, comments: "No comment" }
+  { metric: "Ecosystem partners secured", target: "5", current: "0", previous: "0", wow: "0%", progress: 0, comments: "Afrosonic + Tafaria Castle MOUs briefed into LECoR. Bank of Kigali proposal due 15 Apr. Trace TV terms under review." },
+  { metric: "Champions trained", target: "50", current: "0", previous: "0", wow: "0%", progress: 0, comments: "Champions rollout June. Naming alignment (Champions vs Ambassadors) still pending. City teams on hold" },
+  { metric: "% of creative learners on platform", target: "60%", current: "0%", previous: "0%", wow: "0%", progress: 0, comments: "Experiment doc aligned with Javan 13 Apr. MVP pilot proceeding — eHub SSO + ALX subdomain pending. Submissions paused pending re-platform." },
+  { metric: "Impression from UGC led campaigns", target: "250", current: "0", previous: "0", wow: "0%", progress: 0, comments: "Create with ALX campaign launching 8th April. Submissions open 9th Apr. Target: 250K impressions." }
 ];
 
 const funnelData = [
@@ -86,12 +83,26 @@ const cohortGroups = [
     pfData: [
       { program: "Content Creation", activated: 1214, graduated: 189, rate: "15.57%", dates: "Sep 22 - Dec 15 '2025" },
       { program: "Graphic Design", activated: 1288, graduated: 240, rate: "18.63%", dates: "Sep 22 - Dec 15 '2025" },
-    ], 
+    ],
+    pfShow2025: true,
     ctlsName: 'Creative Tech Lite Specialization Cohort 3',
     ctlsData: [
-      { program: "Content Creation", activated: 432, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
+      { program: "Content Creation", activated: 476, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
       { program: "Graphic Design", activated: 373, graduated: "Pending Graduation", rate: "N/A", dates: "Jan 12 - May 18 '2026" },
-    ] 
+    ],
+    ctlsShow2025: false,  // started Jan 2026 — 2026 tab only
+  },
+  {
+    id: 'group4',
+    pfName: 'Professional Foundations Cohort 12 – New Short-Course Structure',
+    pfData: [
+      { program: "Content Creation", activated: 432, graduated: 0, rate: "0.00%", dates: "Feb 23 - May 11 '2026" },
+      { program: "Graphic Design", activated: 544, graduated: 0, rate: "0.00%", dates: "Feb 23 - May 11 '2026" },
+    ],
+    pfShow2025: false,    // started Feb 2026 — 2026 tab only
+    ctlsName: null,
+    ctlsData: [],
+    ctlsShow2025: false,
   }
 ];
 
@@ -122,11 +133,12 @@ const TooltipStyle = {
 };
 
 const CohortSection = ({ title, data, bgColor }) => {
-  // FIX: Properly look for 'activated' since 'enrolled' doesn't exist in the cohort dataset
+  const [expanded, setExpanded] = React.useState(false);
+
   const pieData = data
     .filter(d => typeof d.activated === 'number')
     .map(d => ({ name: d.program, value: d.activated }));
-  
+
   const gradData = data
     .filter(d => typeof d.graduated === 'number')
     .map(d => ({ name: d.program, value: d.graduated }));
@@ -137,42 +149,131 @@ const CohortSection = ({ title, data, bgColor }) => {
 
   const totalActivated = pieData.reduce((acc, curr) => acc + curr.value, 0);
   const totalGraduated = gradData.reduce((acc, curr) => acc + curr.value, 0);
-  
+
   const averageRate = (totalActivated > 0 && gradData.length > 0)
-    ? ((totalGraduated / totalActivated) * 100).toFixed(2) + '%' 
+    ? ((totalGraduated / totalActivated) * 100).toFixed(2) + '%'
     : 'N/A';
+
+  const startDate = data.length > 0 && data[0].dates ? data[0].dates.split(' - ')[0] : null;
+  const endDate   = data.length > 0 && data[0].dates ? data[0].dates.split(' - ')[1] : null;
+
+  const allPending = data.length > 0 && data.every(d => d.graduated === 'Pending Graduation');
+  const allZeroGrad = data.length > 0 && data.every(d => typeof d.graduated === 'number' && d.graduated === 0);
+  const status = allPending ? 'In Progress' : allZeroGrad ? 'Just Started' : 'Completed';
+  const statusStyle = status === 'Completed'
+    ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+    : status === 'In Progress'
+    ? 'bg-amber-100 text-amber-700 border border-amber-200'
+    : 'bg-blue-100 text-blue-700 border border-blue-200';
 
   return (
     <div className="flex flex-col border-b border-slate-100 last:border-0">
-      <div className={`px-8 py-6 border-y border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 ${bgColor}`}>
-        <div className="flex items-start gap-4">
-          <div className="flex flex-col justify-center">
-            <div className="w-1.5 h-12 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 rounded-full"></div>
-          </div>
-          <div className="flex flex-col justify-center">
-            <h4 className="font-bold text-slate-900 text-lg leading-tight">{title}</h4>
-            <div className="mt-1.5 text-xs font-medium text-slate-500 uppercase tracking-wide">
-              {data.length > 0 && data[0].dates ? (
-                <span className="flex items-center gap-2">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                  Started: {data[0].dates.split(' - ')[0]}
+      <div className={`px-8 py-6 border-y border-slate-200 ${bgColor}`}>
+
+        {/* ── Main header row ── */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="flex items-start gap-4">
+            <div className="flex flex-col justify-center">
+              <div className="w-1.5 h-12 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 rounded-full"></div>
+            </div>
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h4 className="font-bold text-slate-900 text-lg leading-tight">{title}</h4>
+                <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${statusStyle}`}>
+                  {status}
                 </span>
-              ) : null}
+              </div>
+              {startDate && (
+                <div className="mt-1.5 text-xs font-medium text-slate-500 flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                  {startDate}
+                  {endDate && <><span className="text-slate-300 mx-0.5">→</span><span>{endDate}</span></>}
+                </div>
+              )}
             </div>
           </div>
-        </div>
-        <div className="flex items-center gap-3 text-right">
-          <div className="flex flex-col gap-1">
-            {/* Displaying 'Activated' explicitly */}
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Activated</span>
-            <span className="text-2xl font-bold text-slate-900">{totalActivated.toLocaleString()}</span>
+
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 text-right">
+              <div className="flex flex-col gap-1">
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Activated</span>
+                <span className="text-2xl font-bold text-slate-900">{totalActivated.toLocaleString()}</span>
+              </div>
+              <div className="w-px h-12 bg-slate-200"></div>
+              <div className="flex flex-col gap-1">
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Graduated</span>
+                <span className="text-2xl font-bold text-emerald-600">{totalGraduated.toLocaleString()}</span>
+              </div>
+              <div className="w-px h-12 bg-slate-200"></div>
+              <div className="flex flex-col gap-1">
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Avg. Rate</span>
+                <span className="text-2xl font-bold text-blue-600">{averageRate}</span>
+              </div>
+            </div>
+
+            {/* Expand / collapse insight toggle */}
+            <button
+              onClick={() => setExpanded(v => !v)}
+              className="ml-2 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/70 hover:bg-white border border-slate-200 text-slate-500 hover:text-slate-700 text-xs font-semibold transition-all shadow-sm"
+              title="Show per-program insights"
+            >
+              <span className="hidden sm:inline">{expanded ? 'Hide' : 'Details'}</span>
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+            </button>
           </div>
-          <div className="w-px h-12 bg-slate-200"></div>
-          <div className="flex flex-col gap-1">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Graduated</span>
-            <span className="text-2xl font-bold text-emerald-600">{totalGraduated.toLocaleString()}</span>
+        </div>
+
+        {/* ── Per-program insight panel (toggles open/close) ── */}
+        <div
+          className="overflow-hidden transition-all duration-500 ease-in-out"
+          style={{ maxHeight: expanded ? '400px' : '0px' }}
+        >
+          <div className="pt-4 mt-4 border-t border-slate-200/70 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {data.map((row) => {
+              const isPending = row.graduated === 'Pending Graduation';
+              const isNumGrad = typeof row.graduated === 'number';
+              const rowStatus = isPending ? 'In Progress' : isNumGrad && row.graduated > 0 ? 'Completed' : 'Just Started';
+              const rowStatusColor = rowStatus === 'Completed' ? 'text-emerald-600' : rowStatus === 'In Progress' ? 'text-amber-500' : 'text-blue-500';
+              return (
+                <div key={row.program} className="bg-white/80 rounded-xl p-4 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 rounded-full shrink-0 shadow-sm" style={{ backgroundColor: PROGRAM_COLORS[row.program] || '#ccc' }}></div>
+                    <span className="text-sm font-bold text-slate-800 leading-tight">{row.program}</span>
+                  </div>
+                  <div className="space-y-1.5 text-xs">
+                    {row.dates && (
+                      <div className="flex justify-between items-start">
+                        <span className="text-slate-400 font-medium">Period</span>
+                        <span className="text-slate-600 font-semibold text-right ml-2 leading-tight">{row.dates}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between">
+                      <span className="text-slate-400 font-medium">Activated</span>
+                      <span className="text-slate-700 font-semibold">
+                        {typeof row.activated === 'number' ? row.activated.toLocaleString() : row.activated}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-400 font-medium">Graduated</span>
+                      <span className={`font-semibold ${rowStatusColor}`}>
+                        {isPending ? 'In Progress' : isNumGrad ? row.graduated.toLocaleString() : row.graduated}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-400 font-medium">Rate</span>
+                      <span className={`font-bold ${row.rate === 'N/A' ? 'text-slate-400' : 'text-blue-600'}`}>{row.rate}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-400 font-medium">Status</span>
+                      <span className={`font-semibold ${rowStatusColor}`}>{rowStatus}</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
+
       </div>
       
       <div className="p-6 flex flex-col lg:flex-row gap-8 items-center bg-white">
@@ -338,6 +439,13 @@ export default function App() {
 
           <div className="flex-1 hidden lg:block"></div>
 
+          {/* Last updated badge — auto-set at build time */}
+          <div className="hidden md:flex items-center gap-2 text-xs text-slate-400 bg-slate-800/30 px-3 py-1.5 rounded-lg border border-slate-700/50">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="uppercase tracking-wider font-medium">Data as of</span>
+            <span className="text-slate-200 font-semibold">{__BUILD_DATE__}</span>
+          </div>
+
           <div className="flex items-center gap-2 bg-slate-800/30 backdrop-blur-sm p-1.5 rounded-xl border border-slate-700/50 hover:border-slate-600 transition">
             <button
               onClick={() => setCurrentPage('2025')}
@@ -362,9 +470,9 @@ export default function App() {
             </button>
           </div>
 
-          <a 
-            href="https://docs.google.com/spreadsheets/d/1insq7NCsTtHLU2vSx1ejADznXk_jbjygMrtc1KuED3E/edit?gid=79275002#gid=79275002" 
-            target="_blank" 
+          <a
+            href={import.meta.env.VITE_SHEETS_URL}
+            target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 whitespace-nowrap"
           >
@@ -384,7 +492,7 @@ export default function App() {
             </div>
 
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {kpiData2025.map((kpi, idx) => {
                   const Icon = kpi.icon;
                   return (
@@ -458,12 +566,17 @@ export default function App() {
 </div>
                 
                 <div className="bg-white">
-                  {cohortGroups.map((group) => (
-                    <div key={group.id} className="pb-6 border-b-8 border-slate-100 last:border-0 last:pb-0">
-                      <CohortSection title={group.pfName} data={group.pfData} bgColor="bg-slate-50" />
-                      <CohortSection title={group.ctlsName} data={group.ctlsData} bgColor="bg-blue-50/50" />
-                    </div>
-                  ))}
+                  {cohortGroups.map((group) => {
+                    const showPF   = group.pfShow2025   !== false && group.pfData   && group.pfData.length   > 0;
+                    const showCTLS = group.ctlsShow2025 !== false && group.ctlsData && group.ctlsData.length > 0;
+                    if (!showPF && !showCTLS) return null;
+                    return (
+                      <div key={group.id} className="pb-6 border-b-8 border-slate-100 last:border-0 last:pb-0">
+                        {showPF   && <CohortSection title={group.pfName}   data={group.pfData}   bgColor="bg-slate-50" />}
+                        {showCTLS && <CohortSection title={group.ctlsName} data={group.ctlsData} bgColor="bg-blue-50/50" />}
+                      </div>
+                    );
+                  })}
                 </div>
               </Card>
             </div>
@@ -478,7 +591,7 @@ export default function App() {
             </div>
 
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {kpiData2026.map((kpi, idx) => {
                   const Icon = kpi.icon;
                   return (
@@ -581,20 +694,26 @@ export default function App() {
               </Card>
               
               <Card className="p-0 overflow-hidden flex flex-col shadow-xl">
-                <div className="p-8 border-b border-slate-200 bg-gradient-to-r from-emerald-50 via-slate-50 to-white flex flex-col items-center text-center">
-  <div className="flex items-center justify-center mb-2">
-    <div className="w-1 h-8 bg-gradient-to-b from-emerald-500 to-emerald-600 rounded-full mr-3"></div>
-    <h3 className="text-2xl font-bold text-slate-900">Cohort Performance Tracking</h3>
-  </div>
-  <p className="text-sm text-slate-500 mt-2 max-w-2xl">Creative Tech Lite Specialization Cohorts 2 & 3 performance metrics.</p>
-</div>
+                <div className="p-8 border-b border-slate-200 bg-gradient-to-r from-blue-50 via-slate-50 to-white flex flex-col items-center text-center">
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full mr-3"></div>
+                    <h3 className="text-2xl font-bold text-slate-900">Cohort Performance Tracking</h3>
+                  </div>
+                  <p className="text-sm text-slate-500 mt-2 max-w-2xl">Learner progression across CTLS Cohorts 2 & 3 and Professional Foundations Cohort 12.</p>
+                </div>
                 
                 <div className="bg-white">
-                  {cohortGroups.slice(1).map((group) => (
-                    <div key={group.id} className="pb-6 border-b-8 border-slate-100 last:border-0 last:pb-0">
-                      <CohortSection title={group.ctlsName} data={group.ctlsData} bgColor="bg-emerald-50/50" />
-                    </div>
-                  ))}
+                  {cohortGroups.slice(1).map((group) => {
+                    const hasCtls = group.ctlsData && group.ctlsData.length > 0;
+                    return (
+                      <div key={group.id} className="pb-6 border-b-8 border-slate-100 last:border-0 last:pb-0">
+                        {hasCtls
+                          ? <CohortSection title={group.ctlsName} data={group.ctlsData} bgColor="bg-emerald-50/50" />
+                          : <CohortSection title={group.pfName} data={group.pfData} bgColor="bg-amber-50/50" />
+                        }
+                      </div>
+                    );
+                  })}
                 </div>
               </Card>
             </div>

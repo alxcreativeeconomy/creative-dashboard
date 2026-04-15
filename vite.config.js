@@ -5,4 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/creative-dashboard',
+  define: {
+    __BUILD_DATE__: JSON.stringify(
+      new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+    ),
+  },
 })
