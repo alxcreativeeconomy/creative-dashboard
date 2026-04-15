@@ -1,21 +1,22 @@
 import React from 'react';
-import { 
+import {
   ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   PieChart, Pie, Cell
 } from 'recharts';
 import {
-  Users, CreditCard, UserCheck, GraduationCap, ShieldCheck,
-  TrendingUp, ExternalLink, ChevronDown
+  Users, CreditCard, UserCheck, GraduationCap,
+  TrendingUp, TrendingDown, ExternalLink, ChevronDown, Printer, Wifi, WifiOff, Loader2
 } from 'lucide-react';
 import logo from './assets/logo.png';
+import { useSheetCSV } from './hooks/useSheetCSV';
 
 // --- DATA SOURCED STRICTLY FROM CSVs ---
 
 const kpiData2025 = [
-  { title: "Total Enrolled (Top Funnel)", value: "27,817", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Paid Learners", value: "7,660", target: 18000, progress: 49.50, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Activated Paid", value: "4,701", target: 9000, progress: 43.41, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Graduated Learners", value: "1,601", target: 5000, progress: 21.24, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Total Enrolled (Top Funnel)", value: "27,817", target: null, trendPct: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Paid Learners", value: "7,660", target: 18000, progress: 49.50, trendPct: null, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Activated Paid", value: "4,701", target: 9000, progress: 43.41, trendPct: null, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Graduated Learners", value: "1,601", target: 5000, progress: 21.24, trendPct: null, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
 ];
 
 const kpiData2026 = [
@@ -109,13 +110,81 @@ const cohortGroups = [
 // --- COMPONENTS & STYLES ---
 
 const Card = ({ children, className = "", style = {} }) => (
-  <div 
+  <div
     className={`bg-white rounded-2xl shadow-lg border border-slate-100/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-slate-200 ${className}`}
     style={style}
   >
     {children}
   </div>
 );
+
+// Status config derived from progress %
+function kpiStatus(progress) {
+  if (progress == null) return null;
+  if (progress >= 80) return { label: 'On Track',        style: 'bg-emerald-100 text-emerald-700', bar: 'from-emerald-400 to-emerald-500' };
+  if (progress >= 60) return { label: 'Good Progress',   style: 'bg-blue-100 text-blue-700',       bar: 'from-blue-400 to-blue-500' };
+  if (progress >= 40) return { label: 'In Progress',     style: 'bg-amber-100 text-amber-700',     bar: 'from-amber-400 to-amber-500' };
+  return                     { label: 'Needs Attention', style: 'bg-rose-100 text-rose-700',       bar: 'from-rose-400 to-rose-500' };
+}
+
+const KpiCard = ({ kpi }) => {
+  const Icon   = kpi.icon;
+  const status = kpiStatus(kpi.progress);
+  return (
+    <Card
+      className="p-6 flex flex-col justify-between hover:shadow-xl transition-all border-l-4"
+      style={{ borderLeftColor: kpi.borderColor, background: kpi.cardBg }}
+    >
+      <div className="flex justify-between items-start mb-4">
+        <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide leading-tight pr-2">{kpi.title}</span>
+        <div className={`p-3 rounded-xl ${kpi.bg} shadow-md shrink-0`}>
+          <Icon className={`w-5 h-5 ${kpi.color}`} />
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-3xl font-bold text-slate-900">{kpi.value}</h4>
+
+        {/* Trend arrow — shown when trendPct is a number */}
+        {kpi.trendPct != null && (
+          <div className="mt-2 flex items-center gap-1.5">
+            {kpi.trendPct > 0
+              ? <TrendingUp   className="w-3.5 h-3.5 text-emerald-500" />
+              : kpi.trendPct < 0
+              ? <TrendingDown className="w-3.5 h-3.5 text-rose-500" />
+              : <span className="w-3.5 inline-block h-px bg-slate-400" />
+            }
+            <span className={`text-xs font-semibold ${kpi.trendPct > 0 ? 'text-emerald-600' : kpi.trendPct < 0 ? 'text-rose-500' : 'text-slate-500'}`}>
+              {kpi.trendPct > 0 ? '+' : ''}{kpi.trendPct}%
+              <span className="font-normal text-slate-400 ml-1">{kpi.trendLabel || 'vs last sprint'}</span>
+            </span>
+          </div>
+        )}
+
+        {/* Progress against target with colour-coded status badge */}
+        {status && (
+          <div className="mt-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${status.style}`}>
+                {status.label}
+              </span>
+              <span className="text-xs font-bold text-slate-600">{kpi.progress}%</span>
+            </div>
+            <div className="w-full bg-slate-200/50 rounded-full h-2 overflow-hidden shadow-inner">
+              <div
+                className={`h-2 rounded-full transition-all duration-700 bg-gradient-to-r ${status.bar}`}
+                style={{ width: `${Math.min(kpi.progress, 100)}%` }}
+              />
+            </div>
+            <div className="mt-1.5 text-xs text-slate-400">
+              Target: {typeof kpi.target === 'number' ? kpi.target.toLocaleString() : kpi.target}
+            </div>
+          </div>
+        )}
+      </div>
+    </Card>
+  );
+};
 
 const PROGRAM_COLORS = {
   "AI for Creatives": "#3b82f6", 
@@ -132,8 +201,9 @@ const TooltipStyle = {
   padding: '8px 12px'
 };
 
-const CohortSection = ({ title, data, bgColor }) => {
+const CohortSection = ({ title, data, bgColor, forceExpanded = false }) => {
   const [expanded, setExpanded] = React.useState(false);
+  const isExpanded = expanded || forceExpanded;
 
   const pieData = data
     .filter(d => typeof d.activated === 'number')
@@ -217,8 +287,8 @@ const CohortSection = ({ title, data, bgColor }) => {
               className="ml-2 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/70 hover:bg-white border border-slate-200 text-slate-500 hover:text-slate-700 text-xs font-semibold transition-all shadow-sm"
               title="Show per-program insights"
             >
-              <span className="hidden sm:inline">{expanded ? 'Hide' : 'Details'}</span>
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+              <span className="hidden sm:inline print-hide">{isExpanded ? 'Hide' : 'Details'}</span>
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
             </button>
           </div>
         </div>
@@ -226,7 +296,7 @@ const CohortSection = ({ title, data, bgColor }) => {
         {/* ── Per-program insight panel (toggles open/close) ── */}
         <div
           className="overflow-hidden transition-all duration-500 ease-in-out"
-          style={{ maxHeight: expanded ? '400px' : '0px' }}
+          style={{ maxHeight: isExpanded ? '800px' : '0px' }}
         >
           <div className="pt-4 mt-4 border-t border-slate-200/70 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {data.map((row) => {
@@ -414,6 +484,24 @@ const CohortSection = ({ title, data, bgColor }) => {
 
 export default function App() {
   const [currentPage, setCurrentPage] = React.useState('2025');
+  const [isPrinting, setIsPrinting]   = React.useState(false);
+
+  // Force all cohort detail panels open during print
+  React.useEffect(() => {
+    const onBefore = () => setIsPrinting(true);
+    const onAfter  = () => setIsPrinting(false);
+    window.addEventListener('beforeprint', onBefore);
+    window.addEventListener('afterprint',  onAfter);
+    return () => {
+      window.removeEventListener('beforeprint', onBefore);
+      window.removeEventListener('afterprint',  onAfter);
+    };
+  }, []);
+
+  // Live weekly metrics from Google Sheets (falls back to hardcoded if GID not set)
+  const WEEKLY_GID = import.meta.env.VITE_WEEKLY_METRICS_GID;
+  const { data: weeklyData, loading: weeklyLoading, error: weeklyError, isLive: weeklyIsLive } =
+    useSheetCSV(WEEKLY_GID || null, weeklyMetricsData);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50 font-sans text-slate-900">
@@ -470,15 +558,26 @@ export default function App() {
             </button>
           </div>
 
-          <a
-            href={import.meta.env.VITE_SHEETS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 whitespace-nowrap"
-          >
-            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            <span>View Data</span>
-          </a>
+          <div className="flex items-center gap-2 print-hide">
+            <button
+              onClick={() => window.print()}
+              className="flex items-center gap-2 bg-slate-800/30 hover:bg-slate-700/50 border border-slate-700/50 px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-300 hover:text-white transition-all"
+              title="Export as PDF"
+            >
+              <Printer className="w-4 h-4" />
+              <span className="hidden sm:inline">Export PDF</span>
+            </button>
+
+            <a
+              href={import.meta.env.VITE_SHEETS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 whitespace-nowrap"
+            >
+              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <span>View Data</span>
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -493,40 +592,7 @@ export default function App() {
 
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {kpiData2025.map((kpi, idx) => {
-                  const Icon = kpi.icon;
-                  return (
-                    <Card 
-                      key={idx} 
-                      className="p-6 flex flex-col justify-between hover:shadow-xl transition-all border-l-4 group"
-                      style={{ borderLeftColor: kpi.borderColor, background: kpi.cardBg }} 
-                    >
-                      <div className="flex justify-between items-start mb-4">
-                        <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{kpi.title}</span>
-                        <div className={`p-3 rounded-xl ${kpi.bg} shadow-md`}>
-                          <Icon className={`w-5 h-5 ${kpi.color}`} />
-                        </div>
-                      </div>
-                      <div>
-                        <h4 className="text-3xl font-bold text-slate-900">{kpi.value}</h4>
-                        {kpi.target && (
-                          <div className="mt-4">
-                            <div className="flex justify-between text-xs mb-2">
-                              <span className="text-slate-500">Target: {kpi.target}</span>
-                              <span className="font-bold text-slate-700 px-2 py-1 bg-slate-100/80 rounded">{kpi.progress}%</span>
-                            </div>
-                            <div className="w-full bg-slate-200/50 rounded-full h-2.5 overflow-hidden shadow-inner">
-                              <div 
-                                className={`h-2.5 rounded-full transition-all duration-500 ${kpi.progress >= 100 ? 'bg-gradient-to-r from-emerald-400 to-emerald-500' : 'bg-gradient-to-r from-blue-400 to-blue-500'}`} 
-                                style={{ width: `${Math.min(kpi.progress, 100)}%` }}
-                              ></div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </Card>
-                  );
-                })}
+                {kpiData2025.map((kpi, idx) => <KpiCard key={idx} kpi={kpi} />)}
               </div>
 
               <Card className="p-8">
@@ -572,8 +638,8 @@ export default function App() {
                     if (!showPF && !showCTLS) return null;
                     return (
                       <div key={group.id} className="pb-6 border-b-8 border-slate-100 last:border-0 last:pb-0">
-                        {showPF   && <CohortSection title={group.pfName}   data={group.pfData}   bgColor="bg-slate-50" />}
-                        {showCTLS && <CohortSection title={group.ctlsName} data={group.ctlsData} bgColor="bg-blue-50/50" />}
+                        {showPF   && <CohortSection title={group.pfName}   data={group.pfData}   bgColor="bg-slate-50"    forceExpanded={isPrinting} />}
+                        {showCTLS && <CohortSection title={group.ctlsName} data={group.ctlsData} bgColor="bg-blue-50/50"  forceExpanded={isPrinting} />}
                       </div>
                     );
                   })}
@@ -592,51 +658,34 @@ export default function App() {
 
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {kpiData2026.map((kpi, idx) => {
-                  const Icon = kpi.icon;
-                  return (
-                    <Card 
-                      key={idx} 
-                      className="p-6 flex flex-col justify-between hover:shadow-xl transition-all border-l-4 group"
-                      style={{ borderLeftColor: kpi.borderColor, background: kpi.cardBg }} 
-                    >
-                      <div className="flex justify-between items-start mb-4">
-                        <span className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{kpi.title}</span>
-                        <div className={`p-3 rounded-xl ${kpi.bg} shadow-md`}>
-                          <Icon className={`w-5 h-5 ${kpi.color}`} />
-                        </div>
-                      </div>
-                      <div>
-                        <h4 className="text-3xl font-bold text-slate-900">{kpi.value}</h4>
-                        {kpi.target && (
-                          <div className="mt-4">
-                            <div className="flex justify-between text-xs mb-2">
-                              <span className="text-slate-500">Target: {kpi.target}</span>
-                              <span className="font-bold text-slate-700 px-2 py-1 bg-slate-100/80 rounded">{kpi.progress}%</span>
-                            </div>
-                            <div className="w-full bg-slate-200/50 rounded-full h-2.5 overflow-hidden shadow-inner">
-                              <div 
-                                className={`h-2.5 rounded-full transition-all duration-500 ${kpi.progress >= 100 ? 'bg-gradient-to-r from-emerald-400 to-emerald-500' : 'bg-gradient-to-r from-blue-400 to-blue-500'}`} 
-                                style={{ width: `${Math.min(kpi.progress, 100)}%` }}
-                              ></div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </Card>
-                  );
-                })}
+                {kpiData2026.map((kpi, idx) => <KpiCard key={idx} kpi={kpi} />)}
               </div>
 
               <Card className="p-0 overflow-hidden flex flex-col shadow-xl">
                 <div className="p-8 border-b border-slate-200 bg-gradient-to-r from-violet-50 via-slate-50 to-white flex flex-col items-center text-center">
-  <div className="flex items-center justify-center mb-2">
-    <div className="w-1 h-8 bg-gradient-to-b from-violet-500 to-violet-600 rounded-full mr-3"></div>
-    <h3 className="text-2xl font-bold text-slate-900">Weekly Performance Tracking</h3>
-  </div>
-  <p className="text-sm text-slate-500 mt-2 max-w-2xl">Weekly breakdown of progress against key operational targets.</p>
-</div>
-                
+                  <div className="flex items-center justify-center mb-2 gap-3">
+                    <div className="w-1 h-8 bg-gradient-to-b from-violet-500 to-violet-600 rounded-full"></div>
+                    <h3 className="text-2xl font-bold text-slate-900">Weekly Performance Tracking</h3>
+                    {/* Live / cached data source indicator */}
+                    {weeklyLoading && (
+                      <span className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full print-hide">
+                        <Loader2 className="w-3 h-3 animate-spin" /> Syncing…
+                      </span>
+                    )}
+                    {!weeklyLoading && weeklyIsLive && (
+                      <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full print-hide">
+                        <Wifi className="w-3 h-3" /> Live
+                      </span>
+                    )}
+                    {!weeklyLoading && weeklyError && (
+                      <span className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-full print-hide" title={weeklyError}>
+                        <WifiOff className="w-3 h-3" /> Cached
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-slate-500 mt-2 max-w-2xl">Weekly breakdown of progress against key operational targets.</p>
+                </div>
+
                 <div className="bg-white overflow-x-auto w-full">
                   <table className="w-full text-left border-collapse min-w-[950px]">
                     <thead>
@@ -651,7 +700,7 @@ export default function App() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100">
-                      {weeklyMetricsData.map((row, idx) => (
+                      {weeklyData.map((row, idx) => (
                         <tr key={idx} className="hover:bg-slate-50 transition-colors duration-150">
                           <td className="px-6 py-4 font-medium text-slate-900 text-sm">
                             {row.metric}
@@ -708,8 +757,8 @@ export default function App() {
                     return (
                       <div key={group.id} className="pb-6 border-b-8 border-slate-100 last:border-0 last:pb-0">
                         {hasCtls
-                          ? <CohortSection title={group.ctlsName} data={group.ctlsData} bgColor="bg-emerald-50/50" />
-                          : <CohortSection title={group.pfName} data={group.pfData} bgColor="bg-amber-50/50" />
+                          ? <CohortSection title={group.ctlsName} data={group.ctlsData} bgColor="bg-emerald-50/50" forceExpanded={isPrinting} />
+                          : <CohortSection title={group.pfName}   data={group.pfData}   bgColor="bg-amber-50/50"   forceExpanded={isPrinting} />
                         }
                       </div>
                     );

@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Print / PDF export styles ── */
+@media print {
+  /* Hide everything interactive */
+  nav,
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Clean page setup */
+  @page {
+    margin: 16mm 12mm;
+    size: A4 landscape;
+  }
+
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Remove decorative shadows */
+  * {
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Keep card borders visible */
+  .border {
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Prevent page breaks inside cards */
+  .rounded-2xl {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Force a page break before each major section */
+  .print-break-before {
+    page-break-before: always;
+    break-before: always;
+  }
+
+  /* Make sure tables don't get clipped */
+  .overflow-x-auto {
+    overflow: visible !important;
+  }
+
+  /* Sticky nav shouldn't reserve space when hidden */
+  .sticky {
+    position: relative !important;
+  }
+}
