@@ -14,9 +14,9 @@ import { useSheetCSV } from './hooks/useSheetCSV';
 
 const kpiData2025 = [
   { title: "Total Enrolled (Top Funnel)", value: "35,569", target: null, trendPct: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Paid Learners", value: "7,660", target: 18000, progress: 49.50, trendPct: null, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Activated Paid", value: "4,701", target: 9000, progress: 43.41, trendPct: null, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Graduated Learners", value: "1,601", target: 5000, progress: 21.24, trendPct: null, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Paid Learners", value: "7,660", trendPct: null, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Activated Paid", value: "4,701", trendPct: null, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Graduated Learners", value: "1,601", trendPct: null, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
 ];
 
 const kpiData2026 = [
