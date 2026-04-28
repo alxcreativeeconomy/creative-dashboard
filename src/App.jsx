@@ -13,29 +13,28 @@ import { useSheetCSV } from './hooks/useSheetCSV';
 // --- DATA SOURCED STRICTLY FROM CSVs ---
 
 const kpiData2025 = [
-  { title: "Total Enrolled (Top Funnel)", value: "35,569", target: null, trendPct: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Paid Learners", value: "7,660", trendPct: null, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Activated Paid", value: "4,701", trendPct: null, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Graduated Learners", value: "1,601", trendPct: null, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Total Enrolled (Top Funnel)", value: "35,569", target: "35,569", progress: 100, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Paid Learners", value: "7,660", target: "9,000", progress: 85, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Activated Paid", value: "4,701", target: "5,000", progress: 94, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Graduated Learners", value: "1,601", target: "1,601", progress: 100, icon: GraduationCap, color: "text-amber-600", bg: "bg-amber-100", borderColor: "rgb(245, 158, 11)", cardBg: "linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
 ];
 
 const kpiData2026 = [
-  { title: "Top Funnel Total Enrolled (2026)", value: "12,908", target: "160K", icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Revenue", value: "$673K", target: "$2M", progress: 44.87, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "UGC Impressions", value: "104K", target: "250K", progress: 41.6, icon: TrendingUp, color: "text-cyan-600", bg: "bg-cyan-100", borderColor: "rgb(6, 182, 212)", cardBg: "linear-gradient(135deg, rgba(207, 250, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Top Funnel Total Enrolled (2026)", value: "14,394", target: "160K", progress: 9, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Revenue", value: "$673K", target: "$2M", progress: 33, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "UGC Impressions", value: "104K", target: "1M", progress: 10, icon: TrendingUp, color: "text-cyan-600", bg: "bg-cyan-100", borderColor: "rgb(6, 182, 212)", cardBg: "linear-gradient(135deg, rgba(207, 250, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "Ecosystem Partners", value: "0", target: "15", progress: 0, icon: Users, color: "text-orange-600", bg: "bg-orange-100", borderColor: "rgb(234, 88, 12)", cardBg: "linear-gradient(135deg, rgba(254, 237, 215, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "Champions Trained", value: "0", target: "200", progress: 0, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "% of creative learners on platform", value: "0%", target: "100%", progress: 0, icon: Users, color: "text-pink-600", bg: "bg-pink-100", borderColor: "rgb(236, 72, 153)", cardBg: "linear-gradient(135deg, rgba(252, 231, 243, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
 ];
 
 const weeklyMetricsData = [
-  { metric: "Revenue", target: "$800k", current: "$673k", previous: "$673k", wow: "84%", progress: 84, comments: "Afriemibank: + $664k\nMutiny: + $9K" },
-  { metric: "Team trained", target: "100%", current: "0%", previous: "0%", wow: "0%", progress: 0, comments: "Waiting for central training to kick off" },
-  { metric: "Clients secured + Fundraising proposal submitted", target: "10", current: "2", previous: "2", wow: "0%", progress: 20, comments: "Client reference above" },
-  { metric: "Ecosystem partners secured", target: "5", current: "0", previous: "0", wow: "0%", progress: 0, comments: "Afrosonic + Tafaria Castle MOUs briefed into LECoR. Bank of Kigali proposal due 15 Apr. Trace TV terms under review." },
-  { metric: "Champions trained", target: "50", current: "0", previous: "0", wow: "0%", progress: 0, comments: "Champions rollout June. Naming alignment (Champions vs Ambassadors) still pending. City teams on hold" },
-  { metric: "% of creative learners on platform", target: "60%", current: "0%", previous: "0%", wow: "0%", progress: 0, comments: "Experiment doc aligned with Javan 13 Apr. MVP pilot proceeding — eHub SSO + ALX subdomain pending. Submissions paused pending re-platform." },
-  { metric: "Impression from UGC led campaigns", target: "250", current: "0", previous: "0", wow: "0%", progress: 0, comments: "Create with ALX campaign launching 8th April. Submissions open 9th Apr. Target: 250K impressions." }
+  { metric: "Revenue", target: "$800k", current: "$673k", progress: 84, status: "On Track", execSummary: "Afreximbank +$664k; Mutiny +$9k", comments: "Afreximbank: + $664k; Mutiny: + $9K secured." },
+  { metric: "Enrollments", target: "20K", current: "14,394", progress: 72, status: "In progress", execSummary: "14,394 enrolled; Graphic Design 8,104; Content Creation 6,290", comments: "Creative Lite enrollment data: Graphic Design - 8104; Content creation - 6290" },
+  { metric: "UGC Impressions", target: "250K", current: "104,935", progress: 42, status: "In progress", execSummary: "104,935 reach; 2,557 engagements", comments: "152 submissions received; Week 2 reach: 104,935 (TikTok + x); 2,557 engagements; dashboard link" },
+  { metric: "Ecosystem Partners", target: "5", current: "0", progress: 0, status: "In progress", execSummary: "0 signed MOUs; 3 in exploration", comments: "4 identified. 3 additional in exploration phase. Afrosonic + Tafaria Castle MOUs briefed into LECoR. Bank of Kigali proposal follow up w/c21 Apr. Trace TV terms under review." },
+  { metric: "Champions Trained", target: "50", current: "0 (8 identified)", progress: 0, status: "Behind", execSummary: "Rollout paused; 8 identified", comments: "Champions paused - rollout in June." },
+  { metric: "% of creative learners on platform", target: "60%", current: "0", progress: 0, status: "Behind", execSummary: "Showcase platform paused pending re-platform", comments: "Showcase Platform: on Pause as the MVP needs to be re-platformed on the right foundations before it goes public." },
 ];
 
 const funnelData = [
@@ -123,9 +122,10 @@ const Card = ({ children, className = "", style = {} }) => (
 // Status config derived from progress %
 function kpiStatus(progress) {
   if (progress == null) return null;
-  if (progress >= 80) return { label: 'On Track',        style: 'bg-emerald-100 text-emerald-700', bar: 'from-emerald-400 to-emerald-500' };
-  if (progress >= 60) return { label: 'Good Progress',   style: 'bg-blue-100 text-blue-700',       bar: 'from-blue-400 to-blue-500' };
-  if (progress >= 40) return { label: 'In Progress',     style: 'bg-amber-100 text-amber-700',     bar: 'from-amber-400 to-amber-500' };
+  if (progress >= 84) return { label: 'Completed',     style: 'bg-emerald-100 text-emerald-700', bar: 'from-emerald-400 to-emerald-500' };
+  if (progress >= 60) return { label: 'On Track',        style: 'bg-emerald-100 text-emerald-700', bar: 'from-emerald-400 to-emerald-500' };
+  if (progress >= 40) return { label: 'Good Progress',   style: 'bg-blue-100 text-blue-700',       bar: 'from-blue-400 to-blue-500' };
+  if (progress >= 8) return { label: 'In Progress',     style: 'bg-amber-100 text-amber-700',     bar: 'from-amber-400 to-amber-500' };
   return                     { label: 'Needs Attention', style: 'bg-rose-100 text-rose-700',       bar: 'from-rose-400 to-rose-500' };
 }
 
@@ -665,7 +665,9 @@ export default function App() {
                 <div className="p-8 border-b border-slate-200 bg-gradient-to-r from-violet-50 via-slate-50 to-white flex flex-col items-center text-center">
                   <div className="flex items-center justify-center mb-2 gap-3">
                     <div className="w-1 h-8 bg-gradient-to-b from-violet-500 to-violet-600 rounded-full"></div>
-                    <h3 className="text-2xl font-bold text-slate-900">Weekly Performance Tracking</h3>
+                    <h3 className="text-2xl font-bold text-slate-900">
+                      Sprint 1 Review
+                    </h3>
                     {/* Live / cached data source indicator */}
                     {weeklyLoading && (
                       <span className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full print-hide">
@@ -683,7 +685,7 @@ export default function App() {
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-slate-500 mt-2 max-w-2xl">Weekly breakdown of progress against key operational targets.</p>
+                  <p className="text-sm text-slate-500 mt-2 max-w-2xl">Sprint 1 breakdown of progress against key operational targets.</p>
                 </div>
 
                 <div className="bg-white overflow-x-auto w-full">
@@ -692,9 +694,7 @@ export default function App() {
                       <tr className="text-slate-500 text-[11px] uppercase tracking-wider bg-slate-50 border-b border-slate-200">
                         <th className="px-6 py-4 font-semibold">Metric</th>
                         <th className="px-6 py-4 font-semibold">Target</th>
-                        <th className="px-6 py-4 font-semibold">Current (This Week)</th>
-                        <th className="px-6 py-4 font-semibold">Previous (Last Week)</th>
-                        <th className="px-6 py-4 font-semibold">% WoW Change</th>
+                        <th className="px-6 py-4 font-semibold">Current</th>
                         <th className="px-6 py-4 font-semibold w-48">% Progress</th>
                         <th className="px-6 py-4 font-semibold w-64">Comments</th>
                       </tr>
@@ -710,14 +710,6 @@ export default function App() {
                           </td>
                           <td className="px-6 py-4 text-slate-800 font-semibold text-sm">
                             {row.current}
-                          </td>
-                          <td className="px-6 py-4 text-slate-500 text-sm">
-                            {row.previous}
-                          </td>
-                          <td className="px-6 py-4">
-                            <span className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold ${row.wow === '0%' || row.wow === '0' ? 'bg-slate-100 text-slate-500' : 'bg-emerald-100 text-emerald-700'}`}>
-                              {row.wow}
-                            </span>
                           </td>
                           <td className="px-6 py-4">
                             <div className="flex items-center gap-3">
