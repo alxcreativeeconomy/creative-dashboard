@@ -20,12 +20,12 @@ const kpiData2025 = [
 ];
 
 const kpiData2026 = [
-  { title: "Top Funnel Total Enrolled (2026)", value: "12,908", target: null, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Revenue", value: "$673K", target: "$1.5M", progress: 44.87, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Top Funnel Total Enrolled (2026)", value: "12,908", target: "160K", icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Revenue", value: "$673K", target: "$2M", progress: 44.87, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "UGC Impressions", value: "104K", target: "250K", progress: 41.6, icon: TrendingUp, color: "text-cyan-600", bg: "bg-cyan-100", borderColor: "rgb(6, 182, 212)", cardBg: "linear-gradient(135deg, rgba(207, 250, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Ecosystem Partners", value: "6", target: "15", progress: 40.0, icon: Users, color: "text-orange-600", bg: "bg-orange-100", borderColor: "rgb(234, 88, 12)", cardBg: "linear-gradient(135deg, rgba(254, 237, 215, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "Champions Trained", value: "80", target: "200", progress: 40.0, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "% of creative learners on platform", value: "40%", target: "100%", progress: 40.0, icon: Users, color: "text-pink-600", bg: "bg-pink-100", borderColor: "rgb(236, 72, 153)", cardBg: "linear-gradient(135deg, rgba(252, 231, 243, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Ecosystem Partners", value: "0", target: "15", progress: 0, icon: Users, color: "text-orange-600", bg: "bg-orange-100", borderColor: "rgb(234, 88, 12)", cardBg: "linear-gradient(135deg, rgba(254, 237, 215, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Champions Trained", value: "0", target: "200", progress: 0, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "% of creative learners on platform", value: "0%", target: "100%", progress: 0, icon: Users, color: "text-pink-600", bg: "bg-pink-100", borderColor: "rgb(236, 72, 153)", cardBg: "linear-gradient(135deg, rgba(252, 231, 243, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
 ];
 
 const weeklyMetricsData = [
