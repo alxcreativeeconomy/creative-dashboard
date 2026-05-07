@@ -20,9 +20,9 @@ const kpiData2025 = [
 ];
 
 const kpiData2026 = [
-  { title: "Top Funnel Total Enrolled (2026)", value: "14,394", target: "160K", progress: 9, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "Top Funnel Total Enrolled (2026)", value: "15,627", target: "160K", progress: 9, icon: Users, color: "text-blue-600", bg: "bg-blue-100", borderColor: "rgb(59, 130, 246)", cardBg: "linear-gradient(135deg, rgba(219, 234, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "Revenue", value: "$673K", target: "$2M", progress: 33, icon: CreditCard, color: "text-emerald-600", bg: "bg-emerald-100", borderColor: "rgb(16, 185, 129)", cardBg: "linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
-  { title: "UGC Impressions", value: "104K", target: "1M", progress: 10, icon: TrendingUp, color: "text-cyan-600", bg: "bg-cyan-100", borderColor: "rgb(6, 182, 212)", cardBg: "linear-gradient(135deg, rgba(207, 250, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
+  { title: "UGC Impressions", value: "128K", target: "1M", progress: 10, icon: TrendingUp, color: "text-cyan-600", bg: "bg-cyan-100", borderColor: "rgb(6, 182, 212)", cardBg: "linear-gradient(135deg, rgba(207, 250, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "Ecosystem Partners", value: "0", target: "15", progress: 0, icon: Users, color: "text-orange-600", bg: "bg-orange-100", borderColor: "rgb(234, 88, 12)", cardBg: "linear-gradient(135deg, rgba(254, 237, 215, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "Champions Trained", value: "0", target: "200", progress: 0, icon: UserCheck, color: "text-violet-600", bg: "bg-violet-100", borderColor: "rgb(139, 92, 246)", cardBg: "linear-gradient(135deg, rgba(233, 213, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
   { title: "% of creative learners on platform", value: "0%", target: "100%", progress: 0, icon: Users, color: "text-pink-600", bg: "bg-pink-100", borderColor: "rgb(236, 72, 153)", cardBg: "linear-gradient(135deg, rgba(252, 231, 243, 0.3) 0%, rgba(255, 255, 255, 1) 100%)" },
@@ -30,8 +30,8 @@ const kpiData2026 = [
 
 const weeklyMetricsData = [
   { metric: "Revenue", target: "$800k", current: "$673k", progress: 84, status: "On Track", execSummary: "Afreximbank +$664k; Mutiny +$9k", comments: "Afreximbank: + $664k; Mutiny: + $9K secured." },
-  { metric: "Enrollments", target: "20K", current: "14,394", progress: 72, status: "In progress", execSummary: "14,394 enrolled; Graphic Design 8,104; Content Creation 6,290", comments: "Creative Lite enrollment data: Graphic Design - 8104; Content creation - 6290" },
-  { metric: "UGC Impressions", target: "250K", current: "104,935", progress: 42, status: "In progress", execSummary: "104,935 reach; 2,557 engagements", comments: "152 submissions received; Week 2 reach: 104,935 (TikTok + x); 2,557 engagements; dashboard link" },
+  { metric: "Enrollments", target: "20K", current: "15,627", progress: 78, status: "In progress", execSummary: "15,627 enrolled; Graphic Design 8,718; Content Creation 6,909", comments: "Creative Lite enrollment data: Graphic Design - 8718; Content creation - 6909" },
+  { metric: "UGC Impressions", target: "250K", current: "128,493", progress: 58, status: "In progress", execSummary: "128,493 reach; 2,813 engagements", comments: "171 submissions ,151 verified. Total reach 128,493, UGC 91,  Likes 2491, Comments 221, Shares 128, Interactions 2831." },
   { metric: "Ecosystem Partners", target: "5", current: "0", progress: 0, status: "In progress", execSummary: "0 signed MOUs; 3 in exploration", comments: "4 identified. 3 additional in exploration phase. Afrosonic + Tafaria Castle MOUs briefed into LECoR. Bank of Kigali proposal follow up w/c21 Apr. Trace TV terms under review." },
   { metric: "Champions Trained", target: "50", current: "0 (8 identified)", progress: 0, status: "Behind", execSummary: "Rollout paused; 8 identified", comments: "Champions paused - rollout in June." },
   { metric: "% of creative learners on platform", target: "60%", current: "0", progress: 0, status: "Behind", execSummary: "Showcase platform paused pending re-platform", comments: "Showcase Platform: on Pause as the MVP needs to be re-platformed on the right foundations before it goes public." },
